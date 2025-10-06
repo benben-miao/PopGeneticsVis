@@ -99,6 +99,8 @@ Rscript \
 
 ![](./data/plink_pca/JJ_G2_HN_G2_PC_12.jpeg)
 
+<img src="./data/plink_pca/JJ_G2_HN_G2_PC_12.jpeg" style="width: 100%; border-radius: 10px; box-shadow: 0px 0px 10px #888888;">
+
 #### 2.1.2 PLINK PCA results `./PopGeneticsVis/data/plink_pca/pca.eigenvec`
 
 ```bash
