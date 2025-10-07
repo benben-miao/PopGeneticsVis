@@ -572,3 +572,39 @@ chr1    4488001 4490000 *       3.46668153028929e-25    1.05232051309453e-23    
 chr1    4934001 4936000 *       0.00170753601022128     0.00555652046196457     26.3565891472868        HdF027275       NA
 chr1    5294001 5296000 *       1.09733414650907e-08    9.28758216013033e-08    -58.5365853658537       NA      NA
 ```
+
+### 2.7 MethylKit Context Vis
+
+```bash
+usage: ./PopGeneticsVis/bin/context_pie_vis.R [-h] --subjects_parts SUBJECTS_PARTS [--col_num COL_NUM]
+
+Multi-Pie row: subjects; col: parts
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --subjects_parts SUBJECTS_PARTS
+                        Row: subjects; Col: parts [./subjects_parts.txt].
+  --col_num COL_NUM     Columns/Pies in row [3].
+```
+
+#### 2.7.1 Terminal Running
+
+```bash
+Rscript \
+	./PopGeneticsVis/bin/context_pie_vis.R \
+	--subjects_parts ./PopGeneticsVis/data/methyl_context/context_stats.txt \
+	--col_num 3
+```
+
+![](./data/methyl_context/JJ_G2_vs_HN_G2_Context_Stats.txt.jpeg)
+
+#### 2.7.2 MethylKit Context Stats `./PopGeneticsVis/data/methyl_context/context_stats.txt`
+
+```bash
+cat ./PopGeneticsVis/data/methyl_context/context_stats.txt
+
+Subject	CpG	CHG	CHH
+JJ_G2_HN_G2	79674962	111393332	399114039
+DMRs	602647	607166	609247
+DMRs_Sig	5925	11	15
+```
