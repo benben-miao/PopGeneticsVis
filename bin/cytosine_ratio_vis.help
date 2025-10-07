@@ -1,0 +1,12 @@
+usage: ./PopGeneticsVis/bin/cytosine_ratio_vis.R [-h] --cytosine_report CYTOSINE_REPORT
+                             [--sample_num SAMPLE_NUM]
+
+Methyl Ratio Vis for SytosineReport
+
+options:
+  -h, --help            show this help message and exit
+  --cytosine_report CYTOSINE_REPORT
+                        Cytosine report from Bismark/MethylDackel
+                        [./cytosine_report.txt].
+  --sample_num SAMPLE_NUM
+                        Methyl site number for visualization [1000000].
