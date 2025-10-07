@@ -1,0 +1,18 @@
+usage: ./PopGeneticsVis/bin/methylkit_dmr_violin.R [-h] --methylkit_dmr METHYLKIT_DMR
+                                 [--violin_scale {area,count,width}]
+                                 [--violin_width VIOLIN_WIDTH]
+                                 [--point_size POINT_SIZE]
+
+Meth.Diff Hyper & Hypo Violin Plot
+
+options:
+  -h, --help            show this help message and exit
+  --methylkit_dmr METHYLKIT_DMR
+                        MethylKit DMR results (chr, start, end, ...,
+                        meth.diff) [./methylkit_dmr.txt].
+  --violin_scale {area,count,width}
+                        Violin area and width [count].
+  --violin_width VIOLIN_WIDTH
+                        Violin width percent [1].
+  --point_size POINT_SIZE
+                        Point size [1.5].
