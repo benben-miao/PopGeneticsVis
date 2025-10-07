@@ -178,7 +178,7 @@ Rscript \
 	--box_outliers TRUE
 ```
 
-![](./PopGeneticsVis/data/vcftools_tajimad/JJ_G2_HN_G2_TajimaD.jpeg)
+![](./data/vcftools_tajimad/JJ_G2_HN_G2_TajimaD.jpeg)
 
 #### 2.2.2 VCFtools Tajima'D results `./PopGeneticsVis/data/vcftools_tajimad/all.Tajima.D`
 
