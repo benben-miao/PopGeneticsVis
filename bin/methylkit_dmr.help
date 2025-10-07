@@ -1,0 +1,52 @@
+usage: ./PopGeneticsVis/bin/methylkit_dmr.R [-h] --control CONTROL --treated TREATED --in_dir
+                           IN_DIR --out_dir OUT_DIR [--threads THREADS]
+                           [--nrep NREP] [--level {DMC,DMR,DMP}]
+                           [--context {CpG,CHG,CHH}] [--mincov MINCOV]
+                           [--win_size WIN_SIZE] [--step_size STEP_SIZE]
+                           [--corr_method {pearson,kendall,spearman}]
+                           [--adjust_method {SLIM,holm,hochberg,hommel,bonferroni,BH,BY,fdr,none,qvalue}]
+                           [--test_method {F,Chisq,fast.fisher,midPval}]
+                           [--qvalue_cutoff QVALUE_CUTOFF]
+                           [--meth_cutoff METH_CUTOFF] [--gtf GTF]
+                           [--promoter_up PROMOTER_UP]
+                           [--promoter_down PROMOTER_DOWN]
+                           [--plot_width PLOT_WIDTH]
+                           [--plot_height PLOT_HEIGHT]
+
+MethylKit Analysis Workflow
+
+options:
+  -h, --help            show this help message and exit
+  --control CONTROL     Control group name.
+  --treated TREATED     Treated group name.
+  --in_dir IN_DIR       Input directory [./].
+  --out_dir OUT_DIR     Output directory [./].
+  --threads THREADS     Threads, more CPUs more Mems need [1].
+  --nrep NREP           Samples replicates each group [3].
+  --level {DMC,DMR,DMP}
+                        Methylation level [DMR].
+  --context {CpG,CHG,CHH}
+                        Methylation context [CpG].
+  --mincov MINCOV       Minimum coverage [10].
+  --win_size WIN_SIZE   Window size for DMR (bp) [2000].
+  --step_size STEP_SIZE
+                        Step size for DMR (bp) [2000].
+  --corr_method {pearson,kendall,spearman}
+                        Correlation method [pearson].
+  --adjust_method {SLIM,holm,hochberg,hommel,bonferroni,BH,BY,fdr,none,qvalue}
+                        P-value adjustment method [SLIM].
+  --test_method {F,Chisq,fast.fisher,midPval}
+                        Statistical test method [Chisq].
+  --qvalue_cutoff QVALUE_CUTOFF
+                        Q-value cutoff [0.05].
+  --meth_cutoff METH_CUTOFF
+                        Methylation difference cutoff [25].
+  --gtf GTF             GTF/GFF of genome [NULL].
+  --promoter_up PROMOTER_UP
+                        Promoter upstream distance (bp) [2000]
+  --promoter_down PROMOTER_DOWN
+                        Promoter downstream distance (bp) [200]
+  --plot_width PLOT_WIDTH
+                        Plot width (inch) [10.00].
+  --plot_height PLOT_HEIGHT
+                        Plot height (inch) [10.00].
