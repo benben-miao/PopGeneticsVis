@@ -1,0 +1,9 @@
+usage: ./PopGeneticsVis/bin/context_pie_vis.R [-h] --subjects_parts SUBJECTS_PARTS [--col_num COL_NUM]
+
+Multi-Pie row: subjects; col: parts
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --subjects_parts SUBJECTS_PARTS
+                        Row: subjects; Col: parts [./subjects_parts.txt].
+  --col_num COL_NUM     Columns/Pies in row [3].
