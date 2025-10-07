@@ -1,0 +1,13 @@
+usage: ./PopGeneticsVis/bin/cmplot_fst_xpclr.R [-h] [--method {FST,XPCLR}] --fst_xpclr FST_XPCLR
+                      [--plot_type {m,c,d,q}]
+
+CMplot for FST or XPCLR results annotation
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --method {FST,XPCLR}  SNP selection methods [FST].
+  --fst_xpclr FST_XPCLR
+                        FST or XPCLR results with anno [fst.anno].
+  --plot_type {m,c,d,q}
+                        Plot type m(Manhattan), c(Circle), d(Density), q(QQ-
+                        plot) [m].
