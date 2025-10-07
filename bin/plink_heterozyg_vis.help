@@ -1,0 +1,15 @@
+usage: ./PopGeneticsVis/bin/plink_heterozyg_vis.R [-h] --het_data HET_DATA --sample_pop SAMPLE_POP --select_pops
+             SELECT_POPS [--point_size POINT_SIZE]
+
+PLINK Heterozyg Violin Box Vis
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --het_data HET_DATA   PLINK Heterozyg results [het.het].
+  --sample_pop SAMPLE_POP
+                        Table with IID in col1 and Population in col2
+                        [sample_pop.txt].
+  --select_pops SELECT_POPS
+                        Select populations ['GroupA,GroupB'].
+  --point_size POINT_SIZE
+                        Point size [2].
