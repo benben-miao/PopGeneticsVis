@@ -149,3 +149,50 @@ HN_G2_8 HN_G2
 HN_G2_9 HN_G2
 HN_G2_10        HN_G2
 ```
+
+### 2.2 WGRS VCFtools Tajima'D Vis
+
+```bash
+usage: ./PopGeneticsVis/bin/vcftools_tajimad_vis.R [-h] --tajimad_win TAJIMAD_WIN --select_pops SELECT_POPS
+                   [--box_outliers BOX_OUTLIERS]
+
+VCFtools TajimaD Violin Box Vis
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --tajimad_win TAJIMAD_WIN
+                        VCFtools TajimaD with ordered POP [all.Tajima.D].
+  --select_pops SELECT_POPS
+                        Select populations ['GroupA,GroupB'].
+  --box_outliers BOX_OUTLIERS
+                        Show box outliers uppercase [FALSE].
+```
+
+#### 2.2.1 Terminal Running
+
+```bash
+Rscript \
+	./PopGeneticsVis/bin/vcftools_tajimad_vis.R \
+	--tajimad_win ./PopGeneticsVis/data/vcftools_tajimad/all.Tajima.D \
+	--select_pops "JJ_G2,HN_G2" \
+	--box_outliers TRUE
+```
+
+![](./PopGeneticsVis/data/vcftools_tajimad/JJ_G2_HN_G2_TajimaD.jpeg)
+
+#### 2.2.2 VCFtools Tajima'D results `./PopGeneticsVis/data/vcftools_tajimad/all.Tajima.D`
+
+```bash
+head -n 10 ./PopGeneticsVis/data/vcftools_tajimad/all.Tajima.D
+
+CHROM   BIN_START       N_SNPS  TajimaD POP
+11      10000   4       -1.51583        HN_G2
+11      20000   0       nan     HN_G2
+11      30000   3       -0.504447       HN_G2
+11      40000   0       nan     HN_G2
+11      50000   0       nan     HN_G2
+11      60000   0       nan     HN_G2
+11      70000   0       nan     HN_G2
+11      80000   0       nan     HN_G2
+11      90000   0       nan     HN_G2
+```
