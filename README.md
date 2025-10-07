@@ -371,3 +371,47 @@ Rscript \
 	--fst_xpclr ./PopGeneticsVis/data/xpclr_xpclr/JJ_G2_vs_HN_G2.xpclr.chr.anno \
 	--plot_type c
 ```
+
+### 2.5 WGBS MethylDackel Cytosine Ratio Vis
+
+```bash
+usage: ./PopGeneticsVis/bin/cytosine_ratio_vis.R [-h] --cytosine_report CYTOSINE_REPORT
+                             [--sample_num SAMPLE_NUM]
+
+Methyl Ratio Vis for SytosineReport
+
+options:
+  -h, --help            show this help message and exit
+  --cytosine_report CYTOSINE_REPORT
+                        Cytosine report from Bismark/MethylDackel
+                        [./cytosine_report.txt].
+  --sample_num SAMPLE_NUM
+                        Methyl site number for visualization [1000000].
+```
+
+#### 2.5.1 Terminal Running
+
+```bash
+Rscript \
+	./PopGeneticsVis/bin/cytosine_ratio_vis.R \
+	--cytosine_report ./PopGeneticsVis/data/cytosine_report/HN_G2_1.cytosine_report.txt \
+	--sample_n 1000000
+```
+
+![](./data/cytosine_report/HN_G2_1.cytosine_report.txt.methratio.jpeg)
+
+#### 2.5.2 MethylDackel Cytosine Report `./PopGeneticsVis/data/cytosine_report/HN_G2_1.cytosine_report.txt`
+
+```bash
+head -n 10 ./PopGeneticsVis/data/cytosine_report/HN_G2_1.cytosine_report.txt
+mith1tg000589c  2       +       0       18      CHH     CCC
+mith1tg000589c  3       +       0       19      CHH     CCC
+mith1tg000589c  4       +       0       19      CHH     CCC
+mith1tg000589c  5       +       0       21      CHG     CCG
+mith1tg000589c  6       +       0       25      CG      CGT
+mith1tg000589c  7       -       0       0       CG      CGG
+mith1tg000589c  14      +       0       27      CG      CGC
+mith1tg000589c  15      -       0       0       CG      CGT
+mith1tg000589c  16      +       1       28      CHH     CCC
+mith1tg000589c  17      +       1       29      CHH     CCT
+```
