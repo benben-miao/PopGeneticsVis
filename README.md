@@ -608,3 +608,79 @@ JJ_G2_HN_G2	79674962	111393332	399114039
 DMRs	602647	607166	609247
 DMRs_Sig	5925	11	15
 ```
+
+### 2.8 MethylKit DMR Violin Vis
+
+```bash
+usage: ./PopGeneticsVis/bin/methylkit_dmr_violin.R [-h] --methylkit_dmr METHYLKIT_DMR
+                                 [--violin_scale {area,count,width}]
+                                 [--violin_width VIOLIN_WIDTH]
+                                 [--point_size POINT_SIZE]
+
+Meth.Diff Hyper & Hypo Violin Plot
+
+options:
+  -h, --help            show this help message and exit
+  --methylkit_dmr METHYLKIT_DMR
+                        MethylKit DMR results (chr, start, end, ...,
+                        meth.diff) [./methylkit_dmr.txt].
+  --violin_scale {area,count,width}
+                        Violin area and width [count].
+  --violin_width VIOLIN_WIDTH
+                        Violin width percent [1].
+  --point_size POINT_SIZE
+                        Point size [1.5].
+```
+
+#### 2.8.1 Terminal Running
+
+```bash
+Rscript \
+	./PopGeneticsVis/bin/methylkit_dmr_violin.R \
+	--methylkit_dmr ./PopGeneticsVis/data/methylkit_dmr/JJ_G2_vs_HN_G2_DMR_CpG_2k_Sig.txt \
+	--violin_scale count \
+	--violin_width 1 \
+	--point_size 1.5
+```
+
+![](./data/methylkit_dmr/JJ_G2_vs_HN_G2_DMR_CpG_2k_Sig.txt.violin.jpeg)
+
+```bash
+Rscript \
+	./PopGeneticsVis/bin/methylkit_dmr_violin.R \
+	--methylkit_dmr ./PopGeneticsVis/data/methylkit_dmr/JJ_G2_vs_HN_G2_DMR_CHG_2k_Sig.txt \
+	--violin_scale count \
+	--violin_width 1 \
+	--point_size 1.5
+```
+
+![](./data/methylkit_dmr/JJ_G2_vs_HN_G2_DMR_CHG_2k_Sig.txt.violin.jpeg)
+
+```bash
+Rscript \
+	./PopGeneticsVis/bin/methylkit_dmr_violin.R \
+	--methylkit_dmr ./PopGeneticsVis/data/methylkit_dmr/JJ_G2_vs_HN_G2_DMR_CHH_2k_Sig.txt \
+	--violin_scale count \
+	--violin_width 1 \
+	--point_size 1.5
+```
+
+![](./data/methylkit_dmr/JJ_G2_vs_HN_G2_DMR_CHH_2k_Sig.txt.violin.jpeg)
+
+
+#### 2.8.2 MethylKit DMR Sig `./PopGeneticsVis/data/methylkit_dmr/JJ_G2_vs_HN_G2_DMR_CpG_2k_Sig.txt`
+
+```bash
+head -n 10 ./PopGeneticsVis/data/methylkit_dmr/JJ_G2_vs_HN_G2_DMR_CpG_2k_Sig.txt
+
+chr	start	end	strand	pvalue	qvalue	meth.diff
+chr1	466001	468000	*	0.00415711849409238	0.0120671167427604	-27.3170731707317
+chr1	660001	662000	*	4.04113325784691e-09	3.62260475171775e-08	-33.3792540435737
+chr1	1454001	1456000	*	8.93917792092073e-12	1.08386220427317e-10	-26.5563101301641
+chr1	2750001	2752000	*	2.71610876608368e-129	5.71042756213395e-127	25.0474473214157
+chr1	3428001	3430000	*	2.04907237864629e-10	2.14432834251086e-09	-46.3312368972746
+chr1	3604001	3606000	*	2.13785433427291e-09	1.9841040640047e-08	37.8574305275876
+chr1	4488001	4490000	*	3.46668153028929e-25	1.05232051309453e-23	-28.1260194808221
+chr1	4934001	4936000	*	0.00170753601022128	0.00555652046196457	26.3565891472868
+chr1	5294001	5296000	*	1.09733414650907e-08	9.28758216013033e-08	-58.5365853658537
+```
