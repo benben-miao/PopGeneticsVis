@@ -347,3 +347,27 @@ chr1    140001  150000  141304  149997  -154.800677159078       -154.80067715907
 chr1    145001  155000  145791  154842  -81.9384742813194       -82.1444387953709       5e-05   31      31      0.411929028102946       -0.485315355435985      intergenic
 chr1    150001  160000  150028  159925  -44.0246980239117       -50.7171763729386       4e-04   19      19      13.3849566980539        0.0825640381867617      intergenic
 ```
+
+```bash
+Rscript \
+	./PopGeneticsVis/bin/cmplot_fst_xpclr.R \
+	--method XPCLR \
+	--fst_xpclr ./PopGeneticsVis/data/xpclr_xpclr/JJ_G2_vs_HN_G2.xpclr.chr.anno \
+	--plot_type d
+```
+
+```bash
+Rscript \
+	./PopGeneticsVis/bin/cmplot_fst_xpclr.R \
+	--method XPCLR \
+	--fst_xpclr ./PopGeneticsVis/data/xpclr_xpclr/JJ_G2_vs_HN_G2.xpclr.chr.anno \
+	--plot_type m
+```
+
+```bash
+Rscript \
+	./PopGeneticsVis/bin/cmplot_fst_xpclr.R \
+	--method XPCLR \
+	--fst_xpclr ./PopGeneticsVis/data/xpclr_xpclr/JJ_G2_vs_HN_G2.xpclr.chr.anno \
+	--plot_type c
+```
