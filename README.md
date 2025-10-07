@@ -48,9 +48,16 @@ PopGeneticsVis is a comprehensive toolkit specifically designed for the downstre
 # 1. R: >= v4.3.0
 
 # 2. Packages
-install.packages("argparse")
-install.packages("dplyr")
-install.packages("ggplot2")
+# 2.1 CRAN
+cran_packages <- c("argparse", "CMplot", "dplyr", "tidyr", "stringr", "data.table", "ggplot2", "ggpubr")
+install.packages(cran_packages)
+
+# 2.2 Bioconductor
+if (!require("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+
+bioconductor_packages <- c("methylKit", "GenomicFeatures", "rtracklayer", "GenomicRanges")
+BiocManager::install(bioconductor_packages)
 ```
 
 ### 1.2 Download from GitHub Release
