@@ -263,3 +263,70 @@ HN_G2_8 HN_G2
 HN_G2_9 HN_G2
 HN_G2_10        HN_G2
 ```
+
+### 2.4 WGRS VCFtools FST and XPCLR XPCLR Vis
+
+```bash
+usage: ./PopGeneticsVis/bin/cmplot_fst_xpclr.R [-h] [--method {FST,XPCLR}] --fst_xpclr FST_XPCLR
+                      [--plot_type {m,c,d,q}]
+
+CMplot for FST or XPCLR results annotation
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --method {FST,XPCLR}  SNP selection methods [FST].
+  --fst_xpclr FST_XPCLR
+                        FST or XPCLR results with anno [fst.anno].
+  --plot_type {m,c,d,q}
+                        Plot type m(Manhattan), c(Circle), d(Density), q(QQ-
+                        plot) [m].
+```
+
+#### 2.4.1 Terminal Running
+
+```bash
+Rscript \
+	./PopGeneticsVis/bin/cmplot_fst_xpclr.R \
+	--method FST \
+	--fst_xpclr ./PopGeneticsVis/data/vcftools_fst/FST_JJ_G2_vs_HN_G2.windowed.weir.fst.chr.anno \
+	--plot_type d
+```
+
+![](./data/vcftools_fst/FST_JJ_G2_vs_HN_G2.windowed.weir.fst.chr.anno.d.jpeg)
+
+```bash
+Rscript \
+	./PopGeneticsVis/bin/cmplot_fst_xpclr.R \
+	--method FST \
+	--fst_xpclr ./PopGeneticsVis/data/vcftools_fst/FST_JJ_G2_vs_HN_G2.windowed.weir.fst.chr.anno \
+	--plot_type m
+```
+
+![](./data/vcftools_fst/FST_JJ_G2_vs_HN_G2.windowed.weir.fst.chr.anno.m.jpeg)
+
+```bash
+Rscript \
+	./PopGeneticsVis/bin/cmplot_fst_xpclr.R \
+	--method FST \
+	--fst_xpclr ./PopGeneticsVis/data/vcftools_fst/FST_JJ_G2_vs_HN_G2.windowed.weir.fst.chr.anno \
+	--plot_type c
+```
+
+![](./data/vcftools_fst/FST_JJ_G2_vs_HN_G2.windowed.weir.fst.chr.anno.c.jpeg)
+
+#### 2.4.2 VCFtools FST results `./PopGeneticsVis/data/vcftools_fst/FST_JJ_G2_vs_HN_G2.windowed.weir.fst.chr.anno`
+
+```bash
+head -n 10 ./PopGeneticsVis/data/vcftools_fst/FST_JJ_G2_vs_HN_G2.windowed.weir.fst.chr.anno
+
+CHROM   BIN_START       BIN_END N_VARIANTS      WEIGHTED_FST    MEAN_FST        anno_type       gene_id
+chr11   10001   20000   7       0.0436644       0.0239114       promoter,gene,UTR5,CDS,exon,intron,UTR3 HdF041849(p),HdF041849(g)
+chr11   15001   25000   7       0.0436644       0.0239114       promoter,gene,UTR5,exon,intron  HdF041849(p),HdF041849(g)
+chr11   25001   35000   4       0.0150391       0.0161973       intergenic
+chr11   30001   40000   4       0.0150391       0.0161973       intergenic
+chr11   55001   65000   1       -0.00444874     -0.00444874     intergenic
+chr11   60001   70000   1       -0.00444874     -0.00444874     intergenic
+chr11   270001  280000  15      0.0511696       0.0366771       gene,UTR5,CDS,exon,intron,UTR3  HdF041844(g)
+chr11   275001  285000  15      0.0511696       0.0366771       gene,UTR5,exon,intron   HdF041844(g)
+chr11   300001  310000  8       0.0526581       0.0448139       intergenic
+```
