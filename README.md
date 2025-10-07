@@ -136,7 +136,7 @@ cat ./PopGeneticsVis/data/plink_pca/pca.eigenval
 #### 2.1.4 WGRS `./PopGeneticsVis/data/plink_pca/samples_pops.txt`
 
 ```bash
-head -n 10 
+head -n 10 ./PopGeneticsVis/data/plink_pca/samples_pops.txt
 
 HN_G2_1 HN_G2
 HN_G2_2 HN_G2
@@ -195,4 +195,71 @@ CHROM   BIN_START       N_SNPS  TajimaD POP
 11      70000   0       nan     HN_G2
 11      80000   0       nan     HN_G2
 11      90000   0       nan     HN_G2
+```
+
+### 2.3 WGRS PLINK Heterozyg Vis
+
+```bash
+usage: ./PopGeneticsVis/bin/plink_heterozyg_vis.R [-h] --het_data HET_DATA --sample_pop SAMPLE_POP --select_pops
+             SELECT_POPS [--point_size POINT_SIZE]
+
+PLINK Heterozyg Violin Box Vis
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --het_data HET_DATA   PLINK Heterozyg results [het.het].
+  --sample_pop SAMPLE_POP
+                        Table with IID in col1 and Population in col2
+                        [sample_pop.txt].
+  --select_pops SELECT_POPS
+                        Select populations ['GroupA,GroupB'].
+  --point_size POINT_SIZE
+                        Point size [2].
+```
+
+#### 2.3.1 Terminal Running
+
+```bash
+Rscript \
+	./PopGeneticsVis/bin/plink_heterozyg_vis.R \
+	--het_data ./PopGeneticsVis/data/plink_het/het.het \
+	--sample_pop ./PopGeneticsVis/data/plink_het/samples_pops.txt \
+	--select_pops "JJ_G2,HN_G2" \
+	--point_size 2
+```
+
+![](./data/plink_het/JJ_G2_HN_G2_HetF.jpeg)
+
+#### 2.3.2 PLINK Heterozyg results `./PopGeneticsVis/data/plink_het/het.het`
+
+```bash
+head -n 10 ./PopGeneticsVis/data/plink_het/het.het
+
+#FID	IID	O(HOM)	E(HOM)	OBS_CT	F
+HN_G2_1	HN_G2_1	19048512	1.81455e+07	20585181	0.370148
+HN_G2_10	HN_G2_10	19053719	1.804e+07	20467745	0.417557
+HN_G2_11	HN_G2_11	18950164	1.79458e+07	20366876	0.414843
+HN_G2_12	HN_G2_12	19064469	1.79607e+07	20383072	0.455651
+HN_G2_13	HN_G2_13	19222145	1.8105e+07	20549246	0.457051
+HN_G2_14	HN_G2_14	18908338	1.8013e+07	20444064	0.368286
+HN_G2_15	HN_G2_15	19256769	1.80381e+07	20474025	0.50029
+HN_G2_16	HN_G2_16	19041670	1.80191e+07	20453626	0.420034
+HN_G2_17	HN_G2_17	19309606	1.81539e+07	20603448	0.471799
+```
+
+#### 2.3.3 WGRS `./PopGeneticsVis/data/plink_het/samples_pops.txt`
+
+```bash
+head -n 10 ./PopGeneticsVis/data/plink_het/samples_pops.txt
+
+HN_G2_1 HN_G2
+HN_G2_2 HN_G2
+HN_G2_3 HN_G2
+HN_G2_4 HN_G2
+HN_G2_5 HN_G2
+HN_G2_6 HN_G2
+HN_G2_7 HN_G2
+HN_G2_8 HN_G2
+HN_G2_9 HN_G2
+HN_G2_10        HN_G2
 ```
