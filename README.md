@@ -228,7 +228,7 @@ Rscript \
 	--point_size 2
 ```
 
-![](./data/plink_het/JJ_G2_HN_G2_HetF.jpeg)
+![](./data/plink_het/JJ_G2_HN_G2_Het.jpeg)
 
 #### 2.3.2 PLINK Heterozyg results `./PopGeneticsVis/data/plink_het/het.het`
 
