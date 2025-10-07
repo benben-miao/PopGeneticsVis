@@ -1,0 +1,13 @@
+usage: ./PopGeneticsVis/bin/vcftools_tajimad_vis.R [-h] --tajimad_win TAJIMAD_WIN --select_pops SELECT_POPS
+                   [--box_outliers BOX_OUTLIERS]
+
+VCFtools TajimaD Violin Box Vis
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --tajimad_win TAJIMAD_WIN
+                        VCFtools TajimaD with ordered POP [all.Tajima.D].
+  --select_pops SELECT_POPS
+                        Select populations ['GroupA,GroupB'].
+  --box_outliers BOX_OUTLIERS
+                        Show box outliers uppercase [FALSE].
