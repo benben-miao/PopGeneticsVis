@@ -998,4 +998,3 @@ chr2    2208    -       0       0       CHH     CAC
 chr2    2211    -       0       0       CHH     CAA
 chr2    2214    -       0       0       CHH     CAT
 chr2    2215    -       0       0       CHH     CCA
-(rlang) [miaobenben@admin biorun]$ 
