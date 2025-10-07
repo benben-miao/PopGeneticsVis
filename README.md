@@ -38,6 +38,8 @@
 # PopGeneticsVis
 PopGeneticsVis: a toolkit for whole-genome resequencing and bisulfite sequencing downstream visualization in population genetics.
 
+PopGeneticsVis is a comprehensive toolkit specifically designed for the downstream visualization of whole - genome resequencing and bisulfite sequencing in the context of population genetics. It serves as an essential resource for researchers delving into population - level genetic analysis, enabling them to effectively visualize and interpret the complex data generated from these sequencing techniques. This toolkit provides a set of tools and functions that streamline the process of transforming raw sequencing data into meaningful visual representations, facilitating a deeper understanding of genetic patterns, variations, and epigenetic modifications within populations.
+
 ## 1. Installation
 
 ### 1.1 R with Packages
@@ -53,7 +55,7 @@ install.packages("ggplot2")
 
 ### 1.2 Download from GitHub Release
 
-*https://github.com/benben-miao/PopGeneticsVis/releases*
+[*https://github.com/benben-miao/PopGeneticsVis/releases*](https://github.com/benben-miao/PopGeneticsVis/releases)
 
 ### 1.3 Clone Git Repository
 
@@ -92,6 +94,8 @@ optional arguments:
 ## 2. Documents
 
 ### 2.1 WGRS PLINK PCA Vis
+
+PLINK (short for Whole-Genome Association Analysis Toolset) is one of the most commonly used tools in genome-wide association studies (GWAS) and population genetics research. Its built-in Principal Component Analysis (PCA) function can efficiently process large-scale genotype data, which is used to correct for population stratification or reveal the genetic structure of samples.
 
 ```bash
 Rscript ./PopGeneticsVis/bin/plink_pca_vis.R --help
@@ -189,6 +193,8 @@ HN_G2_10        HN_G2
 
 ### 2.2 WGRS VCFtools Tajima'D Vis
 
+In population genetics research, Tajima's D test is one of the core methods for evaluating the deviation of DNA sequence polymorphism from the neutral evolution model, and VCFtools (Variant Call Format tools) is a commonly used tool for quickly calculating Tajima's D values based on VCF files (a standard format for storing genetic variation data).
+
 ```bash
 usage: ./PopGeneticsVis/bin/vcftools_tajimad_vis.R [-h] --tajimad_win TAJIMAD_WIN --select_pops SELECT_POPS
                    [--box_outliers BOX_OUTLIERS]
@@ -235,6 +241,8 @@ CHROM   BIN_START       N_SNPS  TajimaD POP
 ```
 
 ### 2.3 WGRS PLINK Heterozyg Vis
+
+In PLINK (a commonly used tool for genome-wide association studies), Heterozyg (Heterozygosity) is a core indicator for measuring the genetic diversity of samples or loci. It reflects the degree to which an individual carries two different alleles (such as A/T) at a specific locus, or the frequency of the distribution of heterozygous alleles at a locus in a population.
 
 ```bash
 usage: ./PopGeneticsVis/bin/plink_heterozyg_vis.R [-h] --het_data HET_DATA --sample_pop SAMPLE_POP --select_pops
@@ -303,6 +311,8 @@ HN_G2_10        HN_G2
 
 ### 2.4 WGRS VCFtools FST and XPCLR XPCLR Vis
 
+VCFtools (Variant Call Format tools) is a core set of tools for processing VCF (Variant Call Format) files in population genetics, while FST (Fixation Index) is a key indicator for measuring the degree of genetic differentiation between populations. The combination of the two can efficiently analyze the genetic differences between different populations at the genomic level, and is widely used in fields such as population structure research, domestication site localization, and adaptive evolution analysis.
+
 ```bash
 usage: ./PopGeneticsVis/bin/cmplot_fst_xpclr.R [-h] [--method {FST,XPCLR}] --fst_xpclr FST_XPCLR
                       [--plot_type {m,c,d,q}]
@@ -370,6 +380,8 @@ chr11   300001  310000  8       0.0526581       0.0448139       intergenic
 
 #### 2.4.3 XPCLR XPCLR results `./PopGeneticsVis/data/xpclr_xpclr/JJ_G2_vs_HN_G2.xpclr.chr.anno`
 
+XPCLR (Cross-Population Composite Likelihood Ratio) is a commonly used analytical tool in population genetics for detecting selection signals, and it is particularly suitable for studying differences in genomic regions among different populations caused by natural selection. Its core principle is to calculate the "composite likelihood ratio" for each locus on the genome by comparing the differences in allele frequencies between two populations and incorporating linkage disequilibrium (LD) information, thereby identifying regions that may be affected by positive selection (or other selective pressures). Such regions usually exhibit population differentiation signals significantly higher than the genomic background level.
+
 ```bash
 head -n 10 ./PopGeneticsVis/data/xpclr_xpclr/JJ_G2_vs_HN_G2.xpclr.chr.anno
 
@@ -410,6 +422,8 @@ Rscript \
 ```
 
 ### 2.5 WGBS MethylDackel Cytosine Ratio Vis
+
+cytosine_report (cytosine report) is a core file related to WGBS (Whole Genome Bisulfite Sequencing) data analysis. It is mainly used to store key information about cytosine sites in DNA methylation research, supporting subsequent methylation level visualization and Differential Methylation Region (DMR) analysis.
 
 ```bash
 usage: ./PopGeneticsVis/bin/cytosine_ratio_vis.R [-h] --cytosine_report CYTOSINE_REPORT
@@ -612,6 +626,8 @@ chr1    5294001 5296000 *       1.09733414650907e-08    9.28758216013033e-08    
 
 ### 2.7 MethylKit Context Vis
 
+MethylKit Context is a core analytical dimension in epigenetics (especially in DNA methylation analysis) based on the methylKit toolkit (commonly used for whole-genome bisulfite sequencing, WGBS, data analysis). It focuses on the distribution patterns and quantitative statistics of DNA methylation in different genomic contexts.
+
 ```bash
 usage: ./PopGeneticsVis/bin/context_pie_vis.R [-h] --subjects_parts SUBJECTS_PARTS [--col_num COL_NUM]
 
@@ -647,6 +663,8 @@ DMRs_Sig	5925	11	15
 ```
 
 ### 2.8 MethylKit DMR Violin Vis
+
+MethylKit is an open-source bioinformatics toolkit based on the R language, specifically designed for processing high-throughput methylation sequencing data (such as WGBS, RRBS, MeDIP-seq, etc.) and analyzing differential methylation. Among these, Differentially Methylated Regions (DMRs) are one of its core analysis targets — that is, specific regions in the genome where there are significant differences in methylation levels between different sample groups (e.g., disease group vs. normal group, treatment group vs. control group). These regions are key entry points for 解析 the biological functions regulated by methylation (such as gene expression, cell differentiation, and disease occurrence).
 
 ```bash
 usage: ./PopGeneticsVis/bin/methylkit_dmr_violin.R [-h] --methylkit_dmr METHYLKIT_DMR
