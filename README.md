@@ -404,6 +404,7 @@ Rscript \
 
 ```bash
 head -n 10 ./PopGeneticsVis/data/cytosine_report/HN_G2_1.cytosine_report.txt
+
 mith1tg000589c  2       +       0       18      CHH     CCC
 mith1tg000589c  3       +       0       19      CHH     CCC
 mith1tg000589c  4       +       0       19      CHH     CCC
@@ -414,4 +415,160 @@ mith1tg000589c  14      +       0       27      CG      CGC
 mith1tg000589c  15      -       0       0       CG      CGT
 mith1tg000589c  16      +       1       28      CHH     CCC
 mith1tg000589c  17      +       1       29      CHH     CCT
+```
+
+### 2.6 MethylKit DMR Analysis and Vis
+
+```bash
+usage: ./PopGeneticsVis/bin/methylkit_dmr.R [-h] --control CONTROL --treated TREATED --in_dir
+                           IN_DIR --out_dir OUT_DIR [--threads THREADS]
+                           [--nrep NREP] [--level {DMC,DMR,DMP}]
+                           [--context {CpG,CHG,CHH}] [--mincov MINCOV]
+                           [--win_size WIN_SIZE] [--step_size STEP_SIZE]
+                           [--corr_method {pearson,kendall,spearman}]
+                           [--adjust_method {SLIM,holm,hochberg,hommel,bonferroni,BH,BY,fdr,none,qvalue}]
+                           [--test_method {F,Chisq,fast.fisher,midPval}]
+                           [--qvalue_cutoff QVALUE_CUTOFF]
+                           [--meth_cutoff METH_CUTOFF] [--gtf GTF]
+                           [--promoter_up PROMOTER_UP]
+                           [--promoter_down PROMOTER_DOWN]
+                           [--plot_width PLOT_WIDTH]
+                           [--plot_height PLOT_HEIGHT]
+
+MethylKit Analysis Workflow
+
+options:
+  -h, --help            show this help message and exit
+  --control CONTROL     Control group name.
+  --treated TREATED     Treated group name.
+  --in_dir IN_DIR       Input directory [./].
+  --out_dir OUT_DIR     Output directory [./].
+  --threads THREADS     Threads, more CPUs more Mems need [1].
+  --nrep NREP           Samples replicates each group [3].
+  --level {DMC,DMR,DMP}
+                        Methylation level [DMR].
+  --context {CpG,CHG,CHH}
+                        Methylation context [CpG].
+  --mincov MINCOV       Minimum coverage [10].
+  --win_size WIN_SIZE   Window size for DMR (bp) [2000].
+  --step_size STEP_SIZE
+                        Step size for DMR (bp) [2000].
+  --corr_method {pearson,kendall,spearman}
+                        Correlation method [pearson].
+  --adjust_method {SLIM,holm,hochberg,hommel,bonferroni,BH,BY,fdr,none,qvalue}
+                        P-value adjustment method [SLIM].
+  --test_method {F,Chisq,fast.fisher,midPval}
+                        Statistical test method [Chisq].
+  --qvalue_cutoff QVALUE_CUTOFF
+                        Q-value cutoff [0.05].
+  --meth_cutoff METH_CUTOFF
+                        Methylation difference cutoff [25].
+  --gtf GTF             GTF/GFF of genome [NULL].
+  --promoter_up PROMOTER_UP
+                        Promoter upstream distance (bp) [2000]
+  --promoter_down PROMOTER_DOWN
+                        Promoter downstream distance (bp) [200]
+  --plot_width PLOT_WIDTH
+                        Plot width (inch) [10.00].
+  --plot_height PLOT_HEIGHT
+                        Plot height (inch) [10.00].
+```
+
+#### 2.6.1 Terminal Running
+
+```bash
+genome_gtf="/path_to_gtf/genome.gtf"
+
+Rscript \
+	./PopGeneticsVis/bin/methylkit_dmr.R \
+	--control JJ_G2 \
+	--treated HN_G2 \
+	--in_dir ./PopGeneticsVis/data/cytosine_report/ \
+	--out_dir ./PopGeneticsVis/data/cytosine_report/ \
+	--threads 1 \
+	--nrep 3 \
+	--level DMR \
+	--context CpG \
+	--mincov 10 \
+	--win_size 2000 \
+	--step_size 2000 \
+	--corr_method pearson \
+	--adjust_method SLIM \
+	--test_method Chisq \
+	--qvalue_cutoff 0.05 \
+	--meth_cutoff 25 \
+	--gtf ${genome_gtf} \
+	--promoter_up 2000 \
+	--promoter_down 200 \
+	--plot_width 10.00 \
+	--plot_height 6.18
+```
+
+![](./data/cytosine_report/JJ_G2_vs_HN_G2_DMR_CpG_Corr.jpeg)
+
+![](./data/cytosine_report/JJ_G2_vs_HN_G2_DMR_CpG_PCA.jpeg)
+
+#### 2.6.2 MethylDackel Cytosine Report `./PopGeneticsVis/data/cytosine_report/JJ_G2_1.cytosine_report.txt`
+
+```bash
+head -n 10 ./PopGeneticsVis/data/cytosine_report/JJ_G2_1.cytosine_report.txt
+
+chr2    1       +       0       0       CHG     CTG
+chr2    3       -       0       2       CHG     CAG
+chr2    5       +       0       0       CHH     CAT
+chr2    8       +       0       0       CHG     CTG
+chr2    10      -       2       1       CHG     CAG
+chr2    12      +       0       0       CHH     CTC
+chr2    14      +       0       0       CHH     CCT
+chr2    15      +       0       0       CHH     CTC
+chr2    17      +       0       0       CHH     CTC
+chr2    19      +       0       0       CHH     CTC
+```
+
+#### 2.6.3 MethylKit DMR results `./PopGeneticsVis/data/cytosine_report/JJ_G2_vs_HN_G2_DMR_CpG_2k.txt`
+
+```bash
+head -n 10 ./PopGeneticsVis/data/cytosine_report/JJ_G2_vs_HN_G2_DMR_CpG_2k.txt
+
+chr     start   end     strand  pvalue  qvalue  meth.diff
+chr1    94001   96000   *       0.359806000563359       0.387704326219981       0.152798303668958
+chr1    96001   98000   *       0.470816921695121       0.456792909828252       -0.0848647129274156
+chr1    98001   100000  *       0.000872125098979439    0.0030624412141788      -0.51115564900546
+chr1    100001  102000  *       0.14767572092135        0.21438828041915        0.144018353504898
+chr1    102001  104000  *       0.96580550253059        0.6773458835649 -0.00530964695794603
+chr1    104001  106000  *       0.797705926039805       0.614400356560997       -0.0539165519981705
+chr1    106001  108000  *       0.00835614419137723     0.0219464554487716      1.44288691348377
+chr1    110001  112000  *       1.30699444113323e-06    8.11073044542023e-06    1.90364567269138
+chr1    112001  114000  *       0.000328168930580941    0.00127959885901375     0.694565505097805
+
+
+head -n 10 ./PopGeneticsVis/data/cytosine_report/JJ_G2_vs_HN_G2_DMR_CpG_2k_Sig.txt
+
+chr     start   end     strand  pvalue  qvalue  meth.diff
+chr1    466001  468000  *       0.00415711849409238     0.0120671167427604      -27.3170731707317
+chr1    660001  662000  *       4.04113325784691e-09    3.62260475171775e-08    -33.3792540435737
+chr1    1454001 1456000 *       8.93917792092073e-12    1.08386220427317e-10    -26.5563101301641
+chr1    2750001 2752000 *       2.71610876608368e-129   5.71042756213395e-127   25.0474473214157
+chr1    3428001 3430000 *       2.04907237864629e-10    2.14432834251086e-09    -46.3312368972746
+chr1    3604001 3606000 *       2.13785433427291e-09    1.9841040640047e-08     37.8574305275876
+chr1    4488001 4490000 *       3.46668153028929e-25    1.05232051309453e-23    -28.1260194808221
+chr1    4934001 4936000 *       0.00170753601022128     0.00555652046196457     26.3565891472868
+chr1    5294001 5296000 *       1.09733414650907e-08    9.28758216013033e-08    -58.5365853658537
+```
+
+#### 2.6.4 MethylKit DMR results `./PopGeneticsVis/data/cytosine_report/JJ_G2_vs_HN_G2_DMR_CpG_2k_Sig_Anno.txt`
+
+```bash
+head -n 10 ./PopGeneticsVis/data/cytosine_report/JJ_G2_vs_HN_G2_DMR_CpG_2k_Sig_Anno.txt
+
+chr     start   end     strand  pvalue  qvalue  meth.diff       anno_genes      anno_promoters
+chr1    466001  468000  *       0.00415711849409238     0.0120671167427604      -27.3170731707317       HdF051575       NA
+chr1    660001  662000  *       4.04113325784691e-09    3.62260475171775e-08    -33.3792540435737       HdF051575       NA
+chr1    1454001 1456000 *       8.93917792092073e-12    1.08386220427317e-10    -26.5563101301641       HdF027216       NA
+chr1    2750001 2752000 *       2.71610876608368e-129   5.71042756213395e-127   25.0474473214157        NA      NA
+chr1    3428001 3430000 *       2.04907237864629e-10    2.14432834251086e-09    -46.3312368972746       HdF027234       NA
+chr1    3604001 3606000 *       2.13785433427291e-09    1.9841040640047e-08     37.8574305275876        HdF027242       NA
+chr1    4488001 4490000 *       3.46668153028929e-25    1.05232051309453e-23    -28.1260194808221       HdF027261       NA
+chr1    4934001 4936000 *       0.00170753601022128     0.00555652046196457     26.3565891472868        HdF027275       NA
+chr1    5294001 5296000 *       1.09733414650907e-08    9.28758216013033e-08    -58.5365853658537       NA      NA
 ```
